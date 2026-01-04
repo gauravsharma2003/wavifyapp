@@ -52,10 +52,10 @@
         <p>If the app doesn't open, <a href="https://apps.apple.com/app/idYOUR_APP_ID">download it here</a></p>
     </div>
     <script>
-        // Check if this is a /song/* path
+        // Check if this is a /song/* path (works with or without /wavifyapp prefix)
         const path = window.location.pathname;
         
-        if (path.startsWith('/song/')) {
+        if (path.includes('/song/')) {
             // Get song ID from URL: /song/xyz123 → xyz123
             const pathParts = path.split('/');
             const songId = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
@@ -71,7 +71,7 @@
         } else {
             // For other 404s, redirect to home page
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = '/wavifyapp/';
             }, 2000);
         }
     </script>

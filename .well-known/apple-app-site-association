@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "YOUR_TEAM_ID.com.yourcompany.Wavify",
-        "paths": ["/song/*"]
+        "paths": ["/wavifyapp/song/*"]
       }
     ]
   }
