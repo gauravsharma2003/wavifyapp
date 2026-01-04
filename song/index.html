@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Wavify...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Opening Wavify...</h1>
+        <p>If the app doesn't open, <a href="https://apps.apple.com/app/idYOUR_APP_ID">download it here</a></p>
+    </div>
+    <script>
+        // Get song ID from URL: /song/xyz123 → xyz123
+        const pathParts = window.location.pathname.split('/');
+        const songId = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        
+        // Your App Store URL (replace with your actual app ID)
+        const appStoreUrl = 'https://apps.apple.com/app/idYOUR_APP_ID';
+        
+        // Redirect to App Store after 1.5 seconds
+        // (iOS will intercept and open the app if installed before this happens)
+        setTimeout(() => {
+            window.location.href = appStoreUrl;
+        }, 1500);
+    </script>
+</body>
+</html>
+
